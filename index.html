@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FetchVerse</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="main-container">
+    <h1>🔹 FetchVerse – Explore Any API</h1>
+    <h2>One Page. Infinite APIs.</h2>
+
+    <label class="dark-mode-toggle">
+      <input type="checkbox" id="themeToggle" onchange="toggleTheme()" />
+      🌙 Dark Mode
+    </label>
+
+    <div class="api-controls">
+      <select id="apiSelect" onchange="handleAPISelection()">
+        <option value="">🔽 Select an API</option>
+        <option value="weather">☁️ Weather (by City)</option>
+        <option value="news">📰 News (by Keyword)</option>
+        <option value="crypto">💰 Crypto (Bitcoin)</option>
+        <option value="custom">🌐 Custom API URL</option>
+      </select>
+
+      <div id="searchInputBox" class="hidden">
+        <input type="text" id="searchQuery" placeholder="Enter parameter (e.g. city or keyword)" />
+      </div>
+
+      <div id="customUrlContainer" class="hidden">
+        <input type="text" id="customApiUrl" placeholder="Enter full API URL" />
+      </div>
+
+      <div class="action-buttons">
+        <button onclick="fetchAPI()">🚀 Fetch Data</button>
+        <button onclick="downloadFormattedData()">📥 Download Card</button>
+        <button onclick="copyJSON()">📋 Copy JSON</button>
+        <button onclick="toggleView()">🔁 Toggle View</button>
+      </div>
+    </div>
+
+    <div id="toast"></div>
+
+    <div id="outputBox" class="output-box">
+      <p><i>API response will appear here...</i></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
